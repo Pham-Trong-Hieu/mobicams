@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="zalo-platform-site-verification" content="PSEX9fhSSpzBzzaJhU9q3t7J_ZITeonYCZ0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+  <meta property="og:type" content="mobicam" />
+  <meta property="og:title" content="MOBICAM - Camera giám sát hành trình" />
+  <meta property="og:image" content="/images/title/mobicam.png" />
+
+  <meta name="facebook-domain-verification" content="mwno5jfbxfv9f69o6oivj5f2vhwb3a" />
+  <meta name="description"
+    content="Là bộ thiết bị camera giám sát hành trình, đã được cấp đầy đủ các chứng nhận theo quy định như TCVN13396 của Bộ KHCN, QCVN55, QCVN117 của Bộ TTTT và QCVN31 của Bộ GTVT." />
+  <title>chi tiết tin tức</title>
+  <%- include('../partials/head.ejs') %>
+</head>
+   <style>
+  
+   </style>
+<body>
+  <div class="wrapper wrapper_detail_page position-relative">
+    <%- include('../partials/header.ejs') ,{headerSection}%>
+      <section class="detail-new pt-3 pb-5">
+        <div class="container">
+          <div class="box">
+            <div class="box-head">
+              <h1 class="text-center mb-4 fw-bold fs-2 title">
+                <%= newDetail.title %>
+              </h1>
+
+              <div style=" border-radius: 10px" class="thumb-new overflow-hidden">
+                <img  loading="lazy" decoding="async" src="<%= newDetail.img %>" alt="thumb-news" />
+              </div>
+            </div>
+            <div class="box-body">
+              <article>
+                <%= newDetail.content %>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <%- include('../partials/footer.ejs'),{footerSection} %>
+  </div>
+  <%- include('../partials/foot.ejs') %>
+  <script src="/js/main.js"></script>
+  <script>
+    $(document).ready(function () {
+      let article = document.getElementsByTagName("article")[0];
+      let articleString = article.innerText;
+      const parser = new DOMParser();
+      let articleHtml = parser.parseFromString(articleString, "text/html");
+
+      article.innerHTML = articleHtml.body.innerHTML;
+    });
+
+  const title_name = document.querySelector('.title').innerText;
+  document.title = title_name;
+
+  </script>
+</body>
+
+</html>
